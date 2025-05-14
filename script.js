@@ -1,0 +1,329 @@
+// --- Sample Software Data (mock scores re-adjusted for clear quadrant placement) ---
+const softwareData = [
+    // Challengers (Low Capability <50, Low Momentum <50)
+    { id: 14, name: "WayCarbon Solutions", logo: "https://www.waycarbon.com/wp-content/uploads/2022/07/logo-waycarbon.svg", owner_company: "WayCarbon", deployment_model: "SaaS", primary_purpose: "GHG Accounting", description: "WayCarbon offers software and consulting for climate change and ESG management, including GHG inventories, risk analysis, and sustainability strategies. Strong in Latin America.", website: "https://www.waycarbon.com", starting_price: "Consulting-led", license_model: "Project-Based", analyst_rating: "Gartner: Not Rated", created_at: "2024-09-05", updated_at: "2025-02-20", mock_capability_score: 25, mock_momentum_score: 20 },
+    { id: 10, name: "Sustaira ESG Platform", logo: "https://www.sustaira.com/wp-content/uploads/2023/01/Sustaira-Logo-2023-Resized.svg", owner_company: "Sustaira", deployment_model: "SaaS", primary_purpose: "All-in-One", description: "Sustaira provides a low-code platform for building custom ESG and sustainability applications. Offers pre-built templates and flexibility for unique organizational needs.", website: "https://www.sustaira.com", starting_price: "Modular Pricing", license_model: "Custom", analyst_rating: "Gartner: Not Rated", created_at: "2024-11-20", updated_at: "2025-04-28", mock_capability_score: 30, mock_momentum_score: 35 },
+    { id: 11, name: "Plan A Platform", logo: "https://plana.earth/wp-content/uploads/2023/09/PlanA_Logo_Black.svg", owner_company: "Plan A Earth GmbH", deployment_model: "SaaS", primary_purpose: "Data Management", description: "Plan A offers a science-based SaaS platform for carbon accounting, decarbonization, and ESG reporting. It helps businesses calculate their footprint and develop reduction strategies.", website: "https://plana.earth/", starting_price: "Starts from €X/month", license_model: "Tiered", analyst_rating: "Verdantix: Challenger 2025", created_at: "2025-02-01", updated_at: "2025-05-08", mock_capability_score: 40, mock_momentum_score: 25 },
+
+    // Innovators (High Capability >50, Low Momentum <50)
+    { id: 9, name: "SWEEP Carbon", logo: "https://assets-global.website-files.com/63062088720a7f38f6e697b1/63062088720a7f399ae697f1_Logo%20Sweep.svg", owner_company: "SWEEP", deployment_model: "SaaS", primary_purpose: "GHG Accounting", description: "SWEEP offers a data-driven platform to help businesses measure, track, and reduce their carbon emissions across Scopes 1, 2, and 3. Focuses on automation and collaboration with suppliers.", website: "https://www.sweep.io", starting_price: "Contact for Pricing", license_model: "Tiered", analyst_rating: "Internal Assessment: Growing Presence", created_at: "2025-01-10", updated_at: "2025-05-12", mock_capability_score: 70, mock_momentum_score: 30 },
+    { id: 16, name: "Novisto Data Mgmt", logo: "https://novisto.com/wp-content/themes/novisto-theme/img/logo_novisto_blue.svg", owner_company: "Novisto Inc.", deployment_model: "SaaS", primary_purpose: "Data Management", description: "Novisto offers an AI-powered ESG data management and reporting platform. It helps companies streamline data collection, improve data quality, and generate investor-grade ESG reports.", website: "https://novisto.com/", starting_price: "Contact for Pricing", license_model: "Tiered", analyst_rating: "Internal Assessment: Emerging Innovator", created_at: "2025-03-01", updated_at: "2025-05-14", mock_capability_score: 75, mock_momentum_score: 40 },
+    { id: 6, name: "Persefoni Carbon", logo: "https://persefoni.com/logo-persefoni-dark.svg", owner_company: "Persefoni AI Inc.", deployment_model: "SaaS", primary_purpose: "GHG Accounting", description: "Persefoni offers an AI-powered platform for carbon footprint management, enabling organizations to calculate, analyze, and report their emissions in compliance with global standards. Strong focus on financial-grade carbon data.", website: "https://www.persefoni.com", starting_price: "Custom Quote", license_model: "Usage-Based", analyst_rating: "Verdantix: Innovator 2025", created_at: "2025-02-15", updated_at: "2025-05-05", mock_capability_score: 85, mock_momentum_score: 45 },
+    
+    // Specialists (Low Capability <50, High Momentum >50)
+    { id: 18, name: "EcoOnline ESG", logo: "https://www.ecoonline.com/hs-fs/hubfs/EcoOnline_Logo_Blue.svg?width=500&name=EcoOnline_Logo_Blue.svg", owner_company: "EcoOnline", deployment_model: "SaaS", primary_purpose: "Risk Management", description: "EcoOnline provides software solutions for chemical safety, EHS, and ESG management. Their ESG tools help businesses track performance, ensure compliance, and manage sustainability risks.", website: "https://www.ecoonline.com/esg-software", starting_price: "Contact Sales", license_model: "Per User", analyst_rating: "Verdantix: Specialist (Chemical Management)", created_at: "2024-09-12", updated_at: "2025-03-25", mock_capability_score: 35, mock_momentum_score: 70 },
+    { id: 13, name: "Clarity AI Tech", logo: "https://clarity.ai/wp-content/uploads/2023/10/Clarity_AI_logo.svg", owner_company: "Clarity AI", deployment_model: "SaaS", primary_purpose: "Analytics", description: "Clarity AI uses machine learning and big data to deliver environmental and social insights for investors, organizations, and consumers. Focuses on impact assessment and ESG risk.", website: "https://clarity.ai", starting_price: "API Access / Custom", license_model: "Usage-Based", analyst_rating: "Internal Assessment: Strong Niche Player", created_at: "2024-10-01", updated_at: "2025-03-30", mock_capability_score: 45, mock_momentum_score: 75 },
+    { id: 17, name: "OneTrust ESG Cloud", logo: "https://www.onetrust.com/wp-content/themes/onetrust/assets/images/onetrust-logo-tagline-dark.svg", owner_company: "OneTrust", deployment_model: "SaaS", primary_purpose: "Compliance", description: "OneTrust ESG & Sustainability Cloud helps organizations build and scale their ESG programs, manage disclosures, and demonstrate accountability. Leverages OneTrust's expertise in trust intelligence.", website: "https://www.onetrust.com/products/esg-sustainability-software/", starting_price: "Custom Quote", license_model: "Platform-based", analyst_rating: "IDC MarketScape: Leader (Privacy Management)", created_at: "2024-08-25", updated_at: "2025-04-22", mock_capability_score: 40, mock_momentum_score: 80 },
+    
+    // Leaders (High Capability >50, High Momentum >50)
+    { id: 3, name: "Cority Cloud", logo: "https://www.cority.com/wp-content/themes/cority/dist/images/logo.svg", owner_company: "Cority", deployment_model: "SaaS", primary_purpose: "ESG Reporting", description: "Cority's Sustainability Cloud focuses on simplifying ESG reporting and compliance. It supports various frameworks like GRI, SASB, and TCFD, enabling organizations to generate accurate and timely reports for stakeholders.", website: "https://www.cority.com", starting_price: "Custom Quote", license_model: "Usage-Based", analyst_rating: "IDC MarketScape: Major Player 2024", created_at: "2024-09-20", updated_at: "2025-03-15", mock_capability_score: 60, mock_momentum_score: 65 },
+    { id: 2, name: "Intelex ESG", logo: "https://www.intelex.com/wp-content/uploads/2023/11/intelex-logo-new.svg", owner_company: "Intelex Technologies", deployment_model: "SaaS", primary_purpose: "Data Management", description: "Intelex provides robust ESG data management capabilities, helping companies streamline data collection, improve accuracy, and meet reporting requirements. Its platform is known for its user-friendly interface and strong analytics features.", website: "https://www.intelex.com", starting_price: "$500/month", license_model: "Per User", analyst_rating: "Gartner: Challenger 2024", created_at: "2024-11-01", updated_at: "2025-05-01", mock_capability_score: 70, mock_momentum_score: 70 },
+    { id: 8, name: "Benchmark ESG", logo: "https://benchmarkdigital.com/wp-content/uploads/2023/01/BenchmarkESGR_B-Digital_Standard_FullColor_RGB.svg", owner_company: "Benchmark Digital Partners", deployment_model: "SaaS", primary_purpose: "Compliance", description: "Benchmark ESG provides a comprehensive suite of digital solutions for EHS, Sustainability, and ESG management. Their platform helps organizations ensure compliance, manage risks, and improve operational performance with configurable applications.", website: "https://benchmarkdigital.com/", starting_price: "Custom Quote", license_model: "Tiered", analyst_rating: "Verdantix: Leader (EHS Software)", created_at: "2024-07-15", updated_at: "2025-03-10", mock_capability_score: 78, mock_momentum_score: 75 },
+    { id: 5, name: "Watershed Climate", logo: "https://images.ctfassets.net/kftFZG3LzDCuD2bS2lOhlC/5ac77140891659953497998810089d39/watershed_logo_wordmark_black.svg", owner_company: "Watershed Technology, Inc.", deployment_model: "SaaS", primary_purpose: "GHG Accounting", description: "Watershed specializes in carbon accounting and decarbonization. Their platform helps businesses measure their carbon footprint, set reduction targets, and report on progress. Known for its granular data analysis.", website: "https://www.watershed.com", starting_price: "Starts at $1,000/month", license_model: "Tiered", analyst_rating: "Internal Assessment: Promising", created_at: "2025-01-05", updated_at: "2025-05-10", mock_capability_score: 90, mock_momentum_score: 60 }, 
+    { id: 4, name: "SpheraCloud ESG", logo: "https://sphera.com/wp-content/uploads/2022/11/Sphera-Logo-Registered-Full-Color-RGB.svg", owner_company: "Sphera", deployment_model: "Hybrid", primary_purpose: "Risk Management", description: "SpheraCloud ESG helps organizations identify, assess, and mitigate ESG risks across their operations and supply chain. It combines software with deep domain expertise to provide actionable insights.", website: "https://www.sphera.com", starting_price: "Tiered Pricing", license_model: "Flat Rate", analyst_rating: "Forrester Wave: Strong Performer Q4 2024", created_at: "2024-08-10", updated_at: "2025-02-28", mock_capability_score: 80, mock_momentum_score: 82 },
+    { id: 15, name: "VelocityEHS ESG", logo: "https://www.ehs.com/wp-content/uploads/2021/10/velocityehs-logo-new-blue.svg", owner_company: "VelocityEHS", deployment_model: "SaaS", primary_purpose: "All-in-One", description: "VelocityEHS provides an integrated platform for EHS and ESG management, helping companies manage risk, ensure compliance, and improve sustainability performance. Known for its comprehensive EHS capabilities.", website: "https://www.ehs.com/solutions/esg-sustainability/", starting_price: "Custom Quote", license_model: "Per User", analyst_rating: "Verdantix: Leader (EHS Software)", created_at: "2024-07-22", updated_at: "2025-04-18", mock_capability_score: 85, mock_momentum_score: 88 },
+    { id: 7, name: "Workiva ESG", logo: "https://www.workiva.com/themes/custom/workiva_bs5/logo.svg", owner_company: "Workiva Inc.", deployment_model: "SaaS", primary_purpose: "ESG Reporting", description: "Workiva provides a connected reporting platform that simplifies complex ESG and sustainability reporting. It allows for collaboration, data integration, and audit trails, ensuring accuracy and compliance for public disclosures.", website: "https://www.workiva.com/solutions/esg-reporting", starting_price: "Free Tier Available", license_model: "Freemium", analyst_rating: "Gartner: Leader (Financial Close & Consolidation)", created_at: "2024-12-01", updated_at: "2025-04-25", mock_capability_score: 88, mock_momentum_score: 92 },
+    { id: 1, name: "Enablon Excellence", logo: "https://www.enablon.com/wp-content/uploads/2023/03/enablon-logo.svg", owner_company: "Wolters Kluwer", deployment_model: "SaaS", primary_purpose: "All-in-One", description: "Enablon offers a comprehensive suite of tools for managing ESG performance, risk, and compliance. It helps organizations collect, analyze, and report on ESG data, ensuring transparency and adherence to global standards. Ideal for large enterprises looking for an integrated solution.", website: "https://www.enablon.com", starting_price: "Custom Quote", license_model: "Tiered", analyst_rating: "Verdantix: Leader Q1 2025", created_at: "2024-10-15", updated_at: "2025-04-20", mock_capability_score: 92, mock_momentum_score: 90 },
+    { id: 12, name: "IBM Envizi Suite", logo: "https://www.ibm.com/content/dam/connectedassets-adobe-cms/worldwide-content/cdas/products/envizi/envizi_logo_without_tagline.png/jcr:content/renditions/original.png", owner_company: "IBM", deployment_model: "SaaS", primary_purpose: "Analytics", description: "IBM Envizi Suite provides data and analytics software for ESG performance management. It helps organizations capture, consolidate, manage, analyze, and report on their ESG data.", website: "https://www.ibm.com/products/envizi", starting_price: "Custom Quote", license_model: "Enterprise", analyst_rating: "Verdantix: Leader (ESG Reporting & Data Management)", created_at: "2024-06-15", updated_at: "2025-04-15", mock_capability_score: 95, mock_momentum_score: 93 }
+];
+
+// --- DOM Elements ---
+// Search and main content containers
+const searchBar = document.getElementById('searchBar');
+const softwareCardContainer = document.getElementById('softwareCardContainer');
+const softwareListContainer = document.getElementById('softwareListContainer');
+const softwareQuadrantContainer = document.getElementById('softwareQuadrantContainer');
+const mainQuadrantArea = document.getElementById('mainQuadrantArea'); // Specific area for bubbles
+const noResultsMessage = document.getElementById('noResultsMessage');
+
+// Modal elements
+const softwareModal = document.getElementById('softwareModal');
+const closeModalButton = document.getElementById('closeModalButton');
+const closeModalButtonFooter = document.getElementById('closeModalButtonFooter');
+
+// Modal field elements
+const modalName = document.getElementById('modalName');
+const modalLogo = document.getElementById('modalLogo');
+const modalOwnerCompany = document.getElementById('modalOwnerCompany');
+const modalPrimaryPurpose = document.getElementById('modalPrimaryPurpose');
+const modalDescription = document.getElementById('modalDescription');
+const modalDeploymentModel = document.getElementById('modalDeploymentModel');
+const modalLicenseModel = document.getElementById('modalLicenseModel');
+const modalStartingPrice = document.getElementById('modalStartingPrice');
+const modalAnalystRating = document.getElementById('modalAnalystRating');
+const modalWebsite = document.getElementById('modalWebsite');
+const modalCreatedAt = document.getElementById('modalCreatedAt');
+const modalUpdatedAt = document.getElementById('modalUpdatedAt');
+
+// View toggle buttons
+const cardViewBtn = document.getElementById('cardViewBtn');
+const listViewBtn = document.getElementById('listViewBtn');
+const quadrantViewBtn = document.getElementById('quadrantViewBtn');
+
+let currentView = 'card'; // Default view state
+
+// --- Utility Functions ---
+
+/**
+ * Handles errors for image loading, replacing broken images with a placeholder.
+ * @param {HTMLImageElement} imgElement - The image element that failed to load.
+ * @param {string} placeholderSize - The size for the placeholder image (e.g., "64x64").
+ */
+function handleImageError(imgElement, placeholderSize = "64x64") {
+    imgElement.onerror = null; // Prevent infinite loop if placeholder also fails
+    imgElement.src = `https://placehold.co/${placeholderSize}/E2E8F0/A0AEC0?text=Logo`;
+    imgElement.alt = 'Error loading logo';
+}
+
+// --- HTML Generation Functions ---
+
+/**
+ * Creates HTML string for a single software card.
+ * @param {object} software - The software data object.
+ * @returns {string} HTML string for the card.
+ */
+function createSoftwareCardHTML(software) {
+    const snippet = software.description.length > 100 ? software.description.substring(0, 100) + "..." : software.description;
+    return `
+        <div class="card-base overflow-hidden cursor-pointer flex flex-col card-focusable" data-id="${software.id}" role="button" tabindex="0" aria-labelledby="card-title-${software.id}">
+            <div class="p-6 flex-grow">
+                <div class="flex items-start space-x-4 mb-3">
+                    <img src="${software.logo}" alt="${software.name} Logo" class="w-16 h-16 rounded-lg logo-img flex-shrink-0 border border-slate-100" onerror="handleImageError(this, '64x64')">
+                    <div>
+                        <h3 id="card-title-${software.id}" class="text-xl font-semibold text-slate-800 mb-1">${software.name}</h3>
+                        <span class="text-xs font-medium bg-sky-100 text-sky-700 px-2 py-1 rounded-full">${software.primary_purpose}</span>
+                    </div>
+                </div>
+                <p class="text-sm text-slate-600 leading-relaxed mb-3">${snippet}</p>
+            </div>
+            <div class="px-6 py-4 bg-slate-50 border-t border-slate-200">
+                 <span class="text-sm text-blue-600 hover:text-blue-700 font-medium">View Details &rarr;</span>
+            </div>
+        </div>`;
+}
+
+/**
+ * Creates HTML string for a single software list item.
+ * @param {object} software - The software data object.
+ * @returns {string} HTML string for the list item.
+ */
+function createSoftwareListItemHTML(software) {
+    return `
+        <div class="list-item card-focusable" data-id="${software.id}" role="button" tabindex="0" aria-labelledby="list-title-${software.id}">
+            <img src="${software.logo}" alt="${software.name} Logo" class="logo-img flex-shrink-0" onerror="handleImageError(this, '40x40')">
+            <div class="flex-grow">
+                <h4 id="list-title-${software.id}" class="font-semibold text-slate-800">${software.name}</h4>
+                <p class="text-xs text-slate-500">${software.owner_company} - ${software.primary_purpose}</p>
+            </div>
+            <span class="text-xs text-blue-600 hover:text-blue-700 font-medium ml-auto p-2" aria-hidden="true">&rarr;</span>
+        </div>`;
+}
+
+/**
+ * Creates HTML string for a single company bubble in the quadrant view.
+ * @param {object} software - The software data object.
+ * @returns {string} HTML string for the bubble.
+ */
+function createSoftwareQuadrantBubbleHTML(software) {
+    // Clamp scores to a 5-95 range for better visual positioning within quadrants
+    const xPos = Math.max(5, Math.min(95, software.mock_momentum_score));
+    const yPos = 100 - Math.max(5, Math.min(95, software.mock_capability_score)); // Inverted for Y-axis (0 at top)
+
+    const displayName = software.name.length > 15 ? software.name.substring(0, 13) + "..." : software.name; // Truncate long names
+
+    // Offset by half bubble size (40px for 80px bubble) to center the bubble on its coordinates
+    return `
+        <div class="company-bubble focusable" data-id="${software.id}" role="button" tabindex="0" style="left: calc(${xPos}% - 40px); bottom: calc(${yPos}% - 40px);" title="${software.name} | Capability: ${software.mock_capability_score}, Momentum: ${software.mock_momentum_score}" aria-label="${software.name}">
+            <img src="${software.logo}" alt="" onerror="this.style.display='none'"> {/* Hide image if it fails to load */}
+            <span>${displayName}</span>
+        </div>`;
+}
+
+// --- DOM Manipulation & Display Logic ---
+
+/**
+ * Clears all company bubbles from the quadrant view.
+ */
+function clearQuadrantBubbles() {
+    const existingBubbles = mainQuadrantArea.querySelectorAll('.company-bubble');
+    existingBubbles.forEach(bubble => bubble.remove());
+}
+
+/**
+ * Displays software items based on the current view and filtered data.
+ * @param {Array<object>} filteredData - The array of software objects to display.
+ */
+function displaySoftware(filteredData) {
+    // Hide all view containers and the no-results message initially
+    softwareCardContainer.classList.add('hidden');
+    softwareListContainer.classList.add('hidden');
+    softwareQuadrantContainer.classList.add('hidden');
+    noResultsMessage.classList.add('hidden');
+
+    // Clear previous content from containers
+    softwareCardContainer.innerHTML = '';
+    softwareListContainer.innerHTML = '';
+    clearQuadrantBubbles();
+
+    if (filteredData.length === 0) {
+        noResultsMessage.classList.remove('hidden'); // Show no results message if data is empty
+    } else {
+        // Show and populate the currently active view
+        if (currentView === 'card') {
+            softwareCardContainer.classList.remove('hidden');
+            filteredData.forEach(software => softwareCardContainer.insertAdjacentHTML('beforeend', createSoftwareCardHTML(software)));
+        } else if (currentView === 'list') {
+            softwareListContainer.classList.remove('hidden');
+            filteredData.forEach(software => softwareListContainer.insertAdjacentHTML('beforeend', createSoftwareListItemHTML(software)));
+        } else if (currentView === 'quadrant') {
+            softwareQuadrantContainer.classList.remove('hidden');
+            filteredData.forEach(software => {
+                const bubbleHTML = createSoftwareQuadrantBubbleHTML(software);
+                mainQuadrantArea.insertAdjacentHTML('beforeend', bubbleHTML);
+            });
+        }
+    }
+    addInteractiveElementListeners(); // Re-attach listeners to newly created elements
+}
+
+/**
+ * Adds click and keydown event listeners to interactive elements (cards, list items, bubbles).
+ */
+function addInteractiveElementListeners() {
+    const interactiveElements = document.querySelectorAll('[data-id]');
+    interactiveElements.forEach(element => {
+        // Clone and replace to ensure old listeners are removed and new ones are attached.
+        // This is crucial when dynamically regenerating lists of items.
+        const newElement = element.cloneNode(true);
+        element.parentNode.replaceChild(newElement, element);
+
+        newElement.addEventListener('click', () => {
+            const softwareId = parseInt(newElement.dataset.id);
+            const selectedSoftware = softwareData.find(s => s.id === softwareId);
+            if (selectedSoftware) openModal(selectedSoftware);
+        });
+
+        // Add keyboard accessibility for 'Enter' and 'Space' keys on focusable custom button elements
+        if (newElement.getAttribute('role') === 'button') {
+            newElement.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault(); // Prevent default space scroll or form submission
+                    const softwareId = parseInt(newElement.dataset.id);
+                    const selectedSoftware = softwareData.find(s => s.id === softwareId);
+                    if (selectedSoftware) openModal(selectedSoftware);
+                }
+            });
+        }
+    });
+}
+
+// --- Modal Logic ---
+
+/**
+ * Opens and populates the software detail modal.
+ * @param {object} software - The software object to display in the modal.
+ */
+function openModal(software) {
+    modalName.textContent = software.name;
+    modalLogo.src = software.logo;
+    modalLogo.alt = `${software.name} Logo`;
+    modalLogo.onerror = () => handleImageError(modalLogo, '80x80'); // Fallback for modal logo
+
+    modalOwnerCompany.textContent = software.owner_company;
+    modalPrimaryPurpose.textContent = software.primary_purpose;
+    modalDescription.textContent = software.description;
+    modalDeploymentModel.textContent = software.deployment_model;
+    modalLicenseModel.textContent = software.license_model;
+    modalStartingPrice.textContent = software.starting_price;
+    modalAnalystRating.textContent = software.analyst_rating;
+    modalWebsite.href = software.website;
+    modalWebsite.textContent = software.website;
+    modalCreatedAt.textContent = software.created_at;
+    modalUpdatedAt.textContent = software.updated_at;
+
+    softwareModal.classList.remove('modal-hidden');
+    softwareModal.classList.add('modal-visible');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling when modal is open
+}
+
+/**
+ * Closes the software detail modal.
+ */
+function closeModal() {
+    softwareModal.classList.add('modal-hidden');
+    softwareModal.classList.remove('modal-visible');
+    document.body.style.overflow = ''; // Restore background scrolling
+}
+
+// --- Filtering and View Switching ---
+
+/**
+ * Filters the software data based on the search term.
+ * @param {string} searchTerm - The term to filter by.
+ * @returns {Array<object>} Filtered array of software objects.
+ */
+function filterSoftware(searchTerm) {
+    const lowerCaseSearchTerm = searchTerm.toLowerCase().trim();
+    if (!lowerCaseSearchTerm) {
+        return softwareData; // Return all if search is empty
+    }
+    return softwareData.filter(software =>
+        software.name.toLowerCase().includes(lowerCaseSearchTerm) ||
+        software.description.toLowerCase().includes(lowerCaseSearchTerm) ||
+        software.primary_purpose.toLowerCase().includes(lowerCaseSearchTerm)
+    );
+}
+
+/**
+ * Switches the displayed view (card, list, quadrant).
+ * @param {string} view - The view to switch to ('card', 'list', or 'quadrant').
+ */
+function switchView(view) {
+    currentView = view; // Set the global currentView state
+
+    // Update 'active' class on view toggle buttons
+    cardViewBtn.classList.toggle('active', view === 'card');
+    listViewBtn.classList.toggle('active', view === 'list');
+    quadrantViewBtn.classList.toggle('active', view === 'quadrant');
+
+    const searchTerm = searchBar.value;
+    // Sort data by ID for consistent order, especially helpful for quadrant stability if scores are similar
+    const dataToDisplay = filterSoftware(searchTerm).sort((a, b) => a.id - b.id);
+
+    displaySoftware(dataToDisplay); // Render the chosen view with filtered (and sorted) data
+}
+
+// --- Initial Setup ---
+// Waits for the DOM to be fully loaded before running setup code.
+document.addEventListener('DOMContentLoaded', () => {
+    // Initial display on page load (defaults to card view)
+    switchView('card');
+
+    // Event listener for the search bar input
+    searchBar.addEventListener('input', (e) => {
+        const searchTerm = e.target.value;
+        const dataToDisplay = filterSoftware(searchTerm).sort((a, b) => a.id - b.id);
+        displaySoftware(dataToDisplay);
+    });
+
+    // Event listeners for modal close actions
+    closeModalButton.addEventListener('click', closeModal);
+    closeModalButtonFooter.addEventListener('click', closeModal);
+    softwareModal.addEventListener('click', (e) => {
+        // Close modal if the click is on the backdrop itself, not on its children
+        if (e.target === softwareModal) {
+            closeModal();
+        }
+    });
+    document.addEventListener('keydown', (e) => {
+        // Close modal with the Escape key if it's visible
+        if (e.key === 'Escape' && softwareModal.classList.contains('modal-visible')) {
+            closeModal();
+        }
+    });
+
+    // Event listeners for view toggle buttons
+    cardViewBtn.addEventListener('click', () => switchView('card'));
+    listViewBtn.addEventListener('click', () => switchView('list'));
+    quadrantViewBtn.addEventListener('click', () => switchView('quadrant'));
+});
