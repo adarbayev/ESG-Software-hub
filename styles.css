@@ -130,7 +130,7 @@ body {
     box-shadow: 0 3px 7px rgba(0,0,0,0.18);
     z-index: 5;
 }
-.company-bubble:hover, .company-bubble:focus-visible { /* Combined hover and focus for bubbles */
+.company-bubble:hover, .company-bubble.focusable:focus-visible { /* Combined hover and focus for bubbles */
     transform: scale(1.18);
     box-shadow: 0 6px 14px rgba(0,0,0,0.28);
     z-index: 10;
@@ -203,9 +203,10 @@ body {
     transition: box-shadow 0.3s ease-in-out, transform 0.2s ease-in-out;
     border: 1px solid #e5e7eb; /* gray-200, subtle border */
 }
-.card-base:hover { /* Applied to individual cards for hover effect */
-    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05); /* Tailwind shadow-xl */
-    transform: translateY(-2px);
+/* Specific hover for individual cards in card view */
+#softwareCardContainer .card-base:hover {
+     box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05); /* Tailwind shadow-xl */
+     transform: translateY(-2px);
 }
 
 /* Tailwind CSS utility classes are used directly in the HTML for most other styling. */
