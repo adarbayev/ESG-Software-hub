@@ -1,0 +1,212 @@
+/* General Body Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    /* Gradient: White -> Light Blue -> Light Purple */
+    background: linear-gradient(135deg, #ffffff 0%, #e0f2fe 40%, #e9d5ff 100%);
+    min-height: 100vh; /* Ensure gradient covers full viewport height */
+    /* Tailwind antialiased and text-slate-800 are applied via class in HTML */
+}
+
+/* Modal Styles */
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+.modal-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+.modal-content::-webkit-scrollbar-thumb {
+    background: #cbd5e1; /* slate-300 */
+    border-radius: 10px;
+}
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8; /* slate-400 */
+}
+.modal-hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.95);
+}
+.modal-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+.modal-transition {
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+/* Logo Image Styling */
+.logo-img {
+    object-fit: contain; /* Ensures logo aspect ratio is maintained */
+}
+
+/* Focus Visible States for Better Accessibility */
+.focusable:focus-visible {
+    outline: 2px solid #2563EB; /* blue-600 */
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.3); /* Equivalent to ring-blue-500 ring-opacity-30 */
+}
+/* Specific focus for cards, list items if needed, bubbles inherit from .focusable */
+.card-focusable:focus-visible {
+     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5); /* blue-500 with opacity */
+}
+
+/* Quadrant Chart Styles */
+.quadrant-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    border: 1px solid #d1d5db; /* gray-300 */
+    position: relative;
+    aspect-ratio: 1 / 1;
+    max-width: 700px;
+    min-height: 500px;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.4); /* Slightly more opaque white */
+    border-radius: 0.75rem; /* Tailwind rounded-xl */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Softer shadow */
+}
+.quadrant {
+    border: 1px dashed #e5e7eb; /* gray-200 */
+    padding: 1rem;
+    position: relative;
+}
+.quadrant-label {
+    position: absolute;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #374151; /* gray-700 */
+    background-color: rgba(243, 244, 246, 0.85); /* gray-100 with opacity */
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.375rem; /* rounded-md */
+    z-index: 1;
+}
+/* Specific quadrant label positions */
+#quadrant-innovators .quadrant-label { top: 0.75rem; left: 0.75rem; }
+#quadrant-leaders .quadrant-label { top: 0.75rem; right: 0.75rem; text-align: right;}
+#quadrant-challengers .quadrant-label { bottom: 0.75rem; left: 0.75rem; }
+#quadrant-specialists .quadrant-label { bottom: 0.75rem; right: 0.75rem; text-align: right;}
+
+.axis-label {
+    position: absolute;
+    font-weight: 600;
+    color: #1f2937; /* gray-800 */
+    background-color: rgba(229, 231, 235, 0.9); /* gray-200 with opacity */
+    padding: 0.35rem 0.7rem;
+    border-radius: 0.375rem; /* rounded-md */
+    z-index: 1;
+    font-size: 0.9rem;
+}
+.y-axis-label {
+    left: -45px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    transform-origin: left center;
+}
+.x-axis-label {
+    bottom: -55px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.company-bubble {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-color: rgba(37, 99, 235, 0.85); /* blue-600, more opaque */
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.65rem;
+    line-height: 1.2;
+    padding: 5px;
+    cursor: pointer;
+    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s ease-out;
+    overflow: hidden;
+    box-shadow: 0 3px 7px rgba(0,0,0,0.18);
+    z-index: 5;
+}
+.company-bubble:hover, .company-bubble:focus-visible { /* Combined hover and focus for bubbles */
+    transform: scale(1.18);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.28);
+    z-index: 10;
+}
+.company-bubble img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-bottom: 4px;
+    object-fit: contain;
+    background-color: rgba(255,255,255,0.5);
+}
+
+/* View Toggle Button Styles */
+.view-button {
+    background-color: #4A5568; /* slate-700 */
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.5rem; /* rounded-lg */
+    margin: 0 0.25rem; /* mx-1 */
+    transition: background-color 0.2s, transform 0.1s;
+    font-size: 0.875rem; /* text-sm */
+    cursor: pointer;
+    border: 1px solid transparent; /* For consistent sizing with focus outline */
+}
+.view-button:hover {
+    background-color: #3b4556; /* Slightly different hover for slate-700 */
+    transform: translateY(-1px);
+}
+.view-button.active {
+    background-color: #2563EB; /* blue-600 */
+    font-weight: 600; /* semibold */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* List Item Styles */
+.list-item {
+    display: flex;
+    align-items: center;
+    padding: 0.85rem 1.1rem;
+    border-bottom: 1px solid #e5e7eb; /* gray-200 */
+    cursor: pointer;
+    transition: background-color 0.2s, border-left-width 0.2s;
+    border-left: 3px solid transparent; /* For hover/focus indication */
+}
+.list-item:hover {
+    background-color: #f9fafb; /* gray-50 */
+    border-left-color: #3b82f6; /* blue-500 */
+}
+.list-item.card-focusable:focus-visible { /* Specific focus for list items */
+    background-color: #f3f4f6; /* gray-100 */
+    border-left-color: #2563EB; /* blue-600 */
+    outline: none; /* Remove default outline, use border instead */
+}
+.list-item:last-child {
+    border-bottom: none;
+}
+.list-item img { /* Styles for logo in list view */
+    width: 40px;
+    height: 40px;
+    margin-right: 1rem;
+    border-radius: 0.375rem; /* rounded-md */
+}
+
+/* Card Base Styles (used for individual cards and list view container) */
+.card-base {
+    background-color: white;
+    border-radius: 0.75rem; /* Tailwind rounded-xl */
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); /* Tailwind shadow-lg */
+    transition: box-shadow 0.3s ease-in-out, transform 0.2s ease-in-out;
+    border: 1px solid #e5e7eb; /* gray-200, subtle border */
+}
+.card-base:hover { /* Applied to individual cards for hover effect */
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05); /* Tailwind shadow-xl */
+    transform: translateY(-2px);
+}
+
+/* Tailwind CSS utility classes are used directly in the HTML for most other styling. */
+/* These custom classes handle styles not easily covered by Tailwind or for specific component states. */
