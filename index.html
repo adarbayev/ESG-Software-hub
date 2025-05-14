@@ -14,7 +14,7 @@
         <h1 class="text-4xl font-bold text-slate-700">ESG Software Discovery Hub</h1>
         <p class="mt-2 text-lg text-slate-600">Find the right ESG SaaS solutions for your needs.</p>
         <div class="mt-8 max-w-2xl mx-auto">
-            <input type="text" id="searchBar" placeholder="Search by name, description, or purpose..."
+            <input type="text" id="searchBar" placeholder="Search by name, description, or purpose (e.g., GRI, TCFD)..."
                    class="w-full px-6 py-4 text-lg text-slate-700 bg-white border-gray-300 rounded-xl shadow-md focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all duration-200 ease-in-out focusable">
         </div>
     </header>
@@ -30,11 +30,9 @@
 
     <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-2">
         <div id="softwareCardContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {/* Card view content will be injected here by JS */}
-        </div>
+            </div>
         <div id="softwareListContainer" class="card-base hidden">
-            {/* List view content will be injected here by JS */}
-        </div>
+            </div>
         <div id="softwareQuadrantContainer" class="hidden py-8">
             <p class="text-center text-sm text-slate-600 mb-6">
                 Illustrative Quadrant: Companies plotted based on mock Capability & Momentum scores.
@@ -45,8 +43,7 @@
                     <div class="quadrant" id="quadrant-leaders"><span class="quadrant-label">Leaders</span></div>
                     <div class="quadrant" id="quadrant-challengers"><span class="quadrant-label">Challengers</span></div>
                     <div class="quadrant" id="quadrant-specialists"><span class="quadrant-label">Specialists</span></div>
-                    {/* Bubbles will be appended directly to mainQuadrantArea by JS */}
-                </div>
+                    </div>
                 <div class="axis-label y-axis-label">Capabilities &uarr;</div>
                 <div class="axis-label x-axis-label">Momentum &rarr;</div>
             </div>
