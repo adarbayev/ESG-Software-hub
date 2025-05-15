@@ -153,7 +153,7 @@ function createSoftwareListItemHTML(software) {
 
 function createSoftwareQuadrantBubbleHTML(software) {
     const xPos = Math.max(5, Math.min(95, software.mock_momentum_score)); 
-    const yPos = 100 - Math.max(5, Math.min(95, software.mock_capability_score)); 
+    const yPos = Math.max(5, Math.min(95, software.mock_capability_score)); 
     
     const displayName = software.name.length > 15 ? software.name.substring(0,13) + "..." : software.name;
 
